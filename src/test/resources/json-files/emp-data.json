@@ -1,0 +1,20 @@
+{
+      "empId":"FS00001",
+      "firstName":"Manjunath",
+      "lastName":"HM",
+      "location":"Bengaluru",
+      "mail":"manjunath_hm@gmail.com",
+      "mobileNum":"9590788102",
+      "department":{
+         "name":"Research And Development"
+      },
+      "account":{
+         "accountName":"Dell"
+      },
+      "role":{
+         "roleName":"Senior Software Engineer"
+      },
+      "project":{
+         "projectName":"XAWAS"
+      }
+   }

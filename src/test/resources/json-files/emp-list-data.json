@@ -1,0 +1,184 @@
+[
+   {
+      "empId":"FS00001",
+      "firstName":"Manjunath",
+      "lastName":"HM",
+      "location":"Bengaluru",
+      "mail":"manjunath_hm@gmail.com",
+      "mobileNum":"9590788102",
+      "department":{
+         "name":"Research And Development"
+      },
+      "account":{
+         "accountName":"Dell"
+      },
+      "role":{
+         "roleName":"Senior Software Engineer"
+      },
+      "project":{
+         "projectName":"XAWAS"
+      }
+   },
+   {
+      "empId":"FS00002",
+      "firstName":"Vinay",
+      "middleName":"G",
+      "lastName":"Kumar",
+      "location":"Bengaluru",
+      "mail":"vinay_g@gmail.com",
+      "mobileNum":"6345185243",
+      "department":{
+         "name":"Research And Development"
+      },
+      "account":{
+         "accountName":"Yodlee"
+      },
+      "role":{
+         "roleName":"Senior Software Developer"
+      },
+      "project":{
+         "projectName":"YEQA-SS"
+      }
+   },
+   {
+      "empId":"FS00003",
+      "firstName":"Sunil",
+      "middleName":"C",
+      "lastName":"Bhuyar",
+      "location":"Bengaluru",
+      "mail":"sunilbhuyar@gmail.com",
+      "mobileNum":"9876534212",
+      "department":{
+         "name":"UI Development Authority"
+      },
+      "account":{
+         "accountName":"ANZ"
+      },
+      "role":{
+         "roleName":"Principal Software Developer"
+      },
+      "project":{
+         "projectName":"BSATRT"
+      }
+   },
+   {
+      "empId":"FS00004",
+      "firstName":"Kiran",
+      "middleName":"M",
+      "lastName":"Vijay",
+      "location":"Mumbai",
+      "mail":"kiranvijay@gmail.com",
+      "mobileNum":"7886753922",
+      "department":{
+         "name":"Software BackEnd Analysis"
+      },
+      "account":{
+         "accountName":"Harman"
+      },
+      "role":{
+         "roleName":"Senior Software Developer"
+      },
+      "project":{
+         "projectName":"HESAC"
+      }
+   },
+   {
+      "empId":"FS00005",
+      "firstName":"Manjunath",
+      "lastName":"Talenovu",
+      "location":"Hyderabad",
+      "mail":"manjunath_talenovu@gmail.com",
+      "mobileNum":"9590756432",
+      "department":{
+         "name":"Research And Development"
+      },
+      "account":{
+         "accountName":"Dell"
+      },
+      "role":{
+         "roleName":"Software Engineer"
+      },
+      "project":{
+         "projectName":"XAWAS"
+      }
+   },
+   {
+      "empId":"FS00006",
+      "firstName":"Vinay",
+      "location":"Delhi",
+      "mail":"vinay@gmail.com",
+      "mobileNum":"7345185243",
+      "department":{
+         "name":"Software BackEnd Analysis"
+      },
+      "account":{
+         "accountName":"Noware"
+      },
+      "role":{
+         "roleName":"Software Analyst"
+      },
+      "project":{
+         "projectName":"YEQA-SS"
+      }
+   },
+   {
+      "empId":"FS00007",
+      "firstName":"Sunil",
+      "lastName":"Germany",
+      "location":"Kolkatta",
+      "mail":"sunilgermany@gmail.com",
+      "mobileNum":"9876574212",
+      "department":{
+         "name":"UI Development Authority"
+      },
+      "account":{
+         "accountName":"XYZ"
+      },
+      "role":{
+         "roleName":"Senior Analyst"
+      },
+      "project":{
+         "projectName":"BSATRT"
+      }
+   },
+   {
+      "empId":"FS00008",
+      "firstName":"Sachin",
+      "lastName":"SampatKumar",
+      "location":"kodagu",
+      "mail":"sachins@gmail.com",
+      "mobileNum":"9776574212",
+      "department":{
+         "name":"Android Workouts"
+      },
+      "account":{
+         "accountName":"Namde"
+      },
+      "role":{
+         "roleName":"Senior Software Developer"
+      },
+      "project":{
+         "projectName":"BOTI"
+      }
+   },
+   {
+      "empId":"FS00009",
+      "firstName":"Raju",
+      "lastName":"Ganachari",
+      "location":"Bengaluru",
+      "mail":"raju@gmail.com",
+      "mobileNum":"9874774212",
+      "department":{
+         "name":"Human Resource"
+      },
+      "account":{
+         "accountName":"IASIPS"
+      },
+      "role":{
+         "roleName":"Analyst Employee Experience"
+      },
+      "project":{
+         "projectName":"BOTI"
+      }
+   }
+]
