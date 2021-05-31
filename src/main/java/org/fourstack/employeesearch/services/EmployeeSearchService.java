@@ -14,4 +14,6 @@ public interface EmployeeSearchService {
 
 	Page<Employee> fetchOnlyFirstAndLastNamesOfEmployees(String firstName, String lastName, int pageNum, int pageSize,
 			String sortingOrder);
+	
+	Employee fetchEmployeeById(String empId);
 }

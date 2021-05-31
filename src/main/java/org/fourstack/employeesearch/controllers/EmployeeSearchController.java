@@ -1,5 +1,6 @@
 package org.fourstack.employeesearch.controllers;
 
+import org.fourstack.employeesearch.models.Employee;
 import org.fourstack.employeesearch.services.EmployeeSearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -7,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -70,6 +72,20 @@ public class EmployeeSearchController {
 		return new ResponseEntity<Page<?>>(
 				empService.fetchOnlyFirstAndLastNamesOfEmployees(pageNum, pageSize, sortingOrder), HttpStatus.OK);
 
+	}
+	
+	@ApiOperation(value = "API to get Employees by Id", produces = "application/json", 
+			httpMethod = "GET", notes = "API end point to get Employee by Id")
+	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Successful retrival of Employee Object"),
+			@ApiResponse(responseCode = "401", description = "UnAuthorized Access - You are not authorized"),
+			@ApiResponse(responseCode = "403", description = "Forbidden - Insufficient previlage to access the resource"),
+			@ApiResponse(responseCode = "500", description = "Internal Server Error - Some issue occurred"),
+			@ApiResponse(responseCode = "504", description = "Gateway Timeout - Timeout occurred") })
+	
+	@GetMapping(path = "/v1/employees/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Employee> getEmployeeById(
+			@ApiParam(value = "Employee Id", name = "id", required = true) @PathVariable(name = "id", value = "id") String id) {
+		return new ResponseEntity<Employee>(empService.fetchEmployeeById(id), HttpStatus.OK);
 	}
 
 }
