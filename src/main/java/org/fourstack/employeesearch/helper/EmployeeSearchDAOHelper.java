@@ -2,35 +2,35 @@ package org.fourstack.employeesearch.helper;
 
 import static org.fourstack.employeesearch.constants.EmployeeSearchConstants.DIGIT_ONE;
 import static org.fourstack.employeesearch.constants.EmployeeSearchConstants.DIGIT_ZERO;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_1;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_10;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_11;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_12;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_13;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_14;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_15;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_16;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_17;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_18;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_19;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_2;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_20;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_21;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_22;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_23;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_24;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_25;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_26;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_27;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_28;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_29;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_3;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_4;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_5;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_6;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_7;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_8;
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_9;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_1;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_10;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_11;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_12;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_13;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_14;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_15;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_16;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_17;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_18;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_19;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_2;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_20;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_21;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_22;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_23;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_24;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_25;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_26;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_27;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_28;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_29;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_3;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_4;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_5;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_6;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_7;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_8;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.SEARCH_CRITERIA_9;
 import static org.fourstack.employeesearch.utils.CommonUtils.isValidString;
 
 import java.util.Optional;
@@ -101,111 +101,111 @@ public class EmployeeSearchDAOHelper {
 			String searchCriteria = generateSearchCriteria(data);
 
 			switch (searchCriteria) {
-			case CASE_1:
+			case SEARCH_CRITERIA_1:
 				employeePage = empRepository.findEmployeePageByFirstnameIgnoreCase(data.getFirstName(), page);
 				break;
-			case CASE_2:
+			case SEARCH_CRITERIA_2:
 				employeePage = empRepository.findEmployeesByLastnameIgnoreCase(data.getLastName(), page);
 				break;
-			case CASE_3:
+			case SEARCH_CRITERIA_3:
 				employeePage = empRepository.findEmployeesByMiddlenameIgnoreCase(data.getMiddleName(), page);
 				break;
-			case CASE_4:
+			case SEARCH_CRITERIA_4:
 				employeePage = empRepository.findEmployeesByFirstnameAndLastnameIgnoreCase(data.getFirstName(),
 						data.getLastName(), page);
 				break;
-			case CASE_5:
+			case SEARCH_CRITERIA_5:
 				employeePage = empRepository.findEmployeePageByFirstLastAndMiddleName(data.getFirstName(),
 						data.getLastName(), data.getMiddleName(), page);
 				break;
-			case CASE_6:
+			case SEARCH_CRITERIA_6:
 				employeePage = empRepository.findEmployeesByRoleIgnoreCase(data.getRoleName(), page);
 				break;
-			case CASE_7:
+			case SEARCH_CRITERIA_7:
 				employeePage = empRepository.findEmployeesByProjectName(data.getProjectName(), page);
 				break;
-			case CASE_8:
+			case SEARCH_CRITERIA_8:
 				employeePage = empRepository.findEmployeesByDepartmentName(data.getDepartmentName(), page);
 				break;
-			case CASE_9:
+			case SEARCH_CRITERIA_9:
 				employeePage = empRepository.findEmployeesByAccountName(data.getAccountName(), page);
 				break;
-			case CASE_10:
+			case SEARCH_CRITERIA_10:
 				employeePage = empRepository.findEmployeesByLocation(data.getLocation(), page);
 				break;
-			case CASE_11:
+			case SEARCH_CRITERIA_11:
 				employeePage = empRepository.findEmployeesByFirstNameAndRole(data.getFirstName(), data.getRoleName(),
 						page);
 				break;
-			case CASE_12:
+			case SEARCH_CRITERIA_12:
 				employeePage = empRepository.findEmployeesByFirstNameAndProject(data.getFirstName(),
 						data.getProjectName(), page);
 				break;
-			case CASE_13:
+			case SEARCH_CRITERIA_13:
 				employeePage = empRepository.findEmployeesByFirstNameAndDepartment(data.getFirstName(),
 						data.getDepartmentName(), page);
 				break;
-			case CASE_14:
+			case SEARCH_CRITERIA_14:
 				employeePage = empRepository.findEmployeesByFirstNameAndAccount(data.getFirstName(),
 						data.getAccountName(), page);
 				break;
-			case CASE_15:
+			case SEARCH_CRITERIA_15:
 				employeePage = empRepository.findEmployeesByFirstNameAndLocation(data.getFirstName(),
 						data.getLocation(), page);
 				break;
-			case CASE_16:
+			case SEARCH_CRITERIA_16:
 				employeePage = empRepository.findEmployeesBylastNameAndRole(data.getLastName(), data.getRoleName(),
 						page);
 				break;
-			case CASE_17:
+			case SEARCH_CRITERIA_17:
 				employeePage = empRepository.findEmployeesByLastNameAndProject(data.getLastName(),
 						data.getProjectName(), page);
 				break;
-			case CASE_18:
+			case SEARCH_CRITERIA_18:
 				employeePage = empRepository.findEmployeesByLastNameAndDepartment(data.getLastName(),
 						data.getDepartmentName(), page);
 				break;
-			case CASE_19:
+			case SEARCH_CRITERIA_19:
 				employeePage = empRepository.findEmployeesByLastNameAndAccountName(data.getLastName(),
 						data.getAccountName(), page);
 				break;
-			case CASE_20:
+			case SEARCH_CRITERIA_20:
 				employeePage = empRepository.findEmployeesByLastNameAndLocation(data.getLastName(), data.getLocation(),
 						page);
 				break;
-			case CASE_21:
+			case SEARCH_CRITERIA_21:
 				employeePage = empRepository.findEmployeesByRoleAndProjectName(data.getRoleName(),
 						data.getProjectName(), page);
 				break;
-			case CASE_22:
+			case SEARCH_CRITERIA_22:
 				employeePage = empRepository.findEmployeesByProjectAndLocation(data.getProjectName(),
 						data.getLocation(), page);
 				break;
-			case CASE_23:
+			case SEARCH_CRITERIA_23:
 				employeePage = empRepository.findEmployeesByProjectAndAccountName(data.getProjectName(),
 						data.getAccountName(), page);
 				break;
-			case CASE_24:
+			case SEARCH_CRITERIA_24:
 				employeePage = empRepository.findEmployeesByRoleAndProjectNameAndAccountName(data.getRoleName(),
 						data.getProjectName(), data.getAccountName(), page);
 				break;
-			case CASE_25:
+			case SEARCH_CRITERIA_25:
 				employeePage = empRepository.findEmployeesByFirstNameLastNameAndRole(data.getFirstName(),
 						data.getLastName(), data.getRoleName(), page);
 				break;
-			case CASE_26:
+			case SEARCH_CRITERIA_26:
 				employeePage = empRepository.findEmployeesByFirstNameLastNameAndAccountName(data.getFirstName(),
 						data.getLastName(), data.getAccountName(), page);
 				break;
-			case CASE_27:
+			case SEARCH_CRITERIA_27:
 				employeePage = empRepository.findEmployeesByFirstLastMiddleNameAndRole(data.getFirstName(),
 						data.getLastName(), data.getMiddleName(), data.getRoleName(), page);
 				break;
-			case CASE_28:
+			case SEARCH_CRITERIA_28:
 				employeePage = empRepository.findEmployeesByFirstLastMiddleNameAndProjectName(data.getFirstName(),
 						data.getLastName(), data.getMiddleName(), data.getProjectName(), page);
 				break;
-			case CASE_29:
+			case SEARCH_CRITERIA_29:
 				employeePage = empRepository.findEmployeesByFirstLastMiddleAndRoleAndProjectName(data.getFirstName(),
 						data.getLastName(), data.getMiddleName(), data.getRoleName(), data.getProjectName(), page);
 				break;
