@@ -20,8 +20,8 @@ import org.springframework.data.mongodb.repository.Query;
  * <li><i>Search By FirstName</i></li>
  * <li><i>Search By LastName</i></li>
  * <li><i>Search By MiddleName</i></li>
- * <li><i>Search By First And Last Name</i></li>
- * <li><i>Search By First, Last And Middle Name</i></li>
+ * <li><i>Search By FirstName And LastName</i></li>
+ * <li><i>Search By FirstName, LastName And Middle Name</i></li>
  * <li><i>Search By Role</i></li>
  * <li><i>Search By Project Name </i></li>
  * <li><i>Search By Department Name</i></li>
@@ -115,7 +115,7 @@ public interface EmployeeRepository extends MongoRepository<Employee, String> {
 	 * @return Page of Employees (Filtered based on LastName)
 	 */
 	@Query(value = "{'lastName' : {$regex: ?0, $options: 'i'}}")
-	Page<Employee> findEmployeesByLastnameignoreCase(String lastName, Pageable page);
+	Page<Employee> findEmployeesByLastnameIgnoreCase(String lastName, Pageable page);
 
 	// * Search By MiddleName (List and Page)
 	/**

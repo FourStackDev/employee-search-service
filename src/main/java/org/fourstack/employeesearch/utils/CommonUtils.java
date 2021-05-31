@@ -55,4 +55,8 @@ public class CommonUtils {
 		}
 		return null;
 	}
+	
+	public static boolean isValidString(String str) {
+		return str != null && !str.isEmpty();
+	}
 }
