@@ -2,11 +2,37 @@ package org.fourstack.employeesearch.helper;
 
 import static org.fourstack.employeesearch.constants.EmployeeSearchConstants.DIGIT_ONE;
 import static org.fourstack.employeesearch.constants.EmployeeSearchConstants.DIGIT_ZERO;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_1;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_10;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_11;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_12;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_13;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_14;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_15;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_16;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_17;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_18;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_19;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_2;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_20;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_21;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_22;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_23;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_24;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_25;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_26;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_27;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_28;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_29;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_3;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_4;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_5;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_6;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_7;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_8;
+import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.CASE_9;
 import static org.fourstack.employeesearch.utils.CommonUtils.isValidString;
 
-import static org.fourstack.employeesearch.constants.SearchCriteriaConstants.*;
-
-import java.util.List;
 import java.util.Optional;
 
 import org.fourstack.employeesearch.dao.EmployeeRepository;
