@@ -10,8 +10,8 @@ public interface EmployeeSearchService {
 
 	Page<Employee> fetchEmployeesByCriteria(EmpSearchData data, int pageNum, int pageSize, String sortingOrder);
 
-	Page<Employee> fecthOnlyFirstAndLastNamesOfEmployees(int pageNum, int pageSize, String sortingOrder);
+	Page<Employee> fetchOnlyFirstAndLastNamesOfEmployees(int pageNum, int pageSize, String sortingOrder);
 
-	Page<Employee> fecthOnlyFirstAndLastNamesOfEmployees(String firstName, String lastName, int pageNum, int pageSize,
+	Page<Employee> fetchOnlyFirstAndLastNamesOfEmployees(String firstName, String lastName, int pageNum, int pageSize,
 			String sortingOrder);
 }

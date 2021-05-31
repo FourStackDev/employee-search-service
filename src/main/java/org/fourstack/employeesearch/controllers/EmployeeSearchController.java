@@ -34,10 +34,17 @@ public class EmployeeSearchController {
 	public ResponseEntity<Page<?>> getOnlyEmployeeFirstAndLastNames(
 			@RequestParam(name = "pageNum", defaultValue = "0") int pageNum,
 			@RequestParam(name = "pageSize", defaultValue = "5") int pageSize,
-			@RequestParam(name = "sortOrder", defaultValue = "ASC") String sortingOrder) {
+			@RequestParam(name = "sortOrder", defaultValue = "ASC") String sortingOrder,
+			@RequestParam(name = "firstname", required = false) String firstName,
+			@RequestParam(name = "lastname", required = false) String lastName) {
+
+		if ((firstName != null && !firstName.isEmpty()) && (lastName != null && !lastName.isEmpty())) {
+			return new ResponseEntity<Page<?>>(empService.fetchOnlyFirstAndLastNamesOfEmployees(firstName, lastName,
+					pageNum, pageSize, sortingOrder), HttpStatus.OK);
+		}
 
 		return new ResponseEntity<Page<?>>(
-				empService.fecthOnlyFirstAndLastNamesOfEmployees(pageNum, pageSize, sortingOrder), HttpStatus.OK);
+				empService.fetchOnlyFirstAndLastNamesOfEmployees(pageNum, pageSize, sortingOrder), HttpStatus.OK);
 
 	}
 

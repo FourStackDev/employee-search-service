@@ -61,13 +61,13 @@ public class EmployeeSearchServiceImpl implements EmployeeSearchService {
 	}
 
 	@Override
-	public Page<Employee> fecthOnlyFirstAndLastNamesOfEmployees(int pageNum, int pageSize, String sortingOrder) {
+	public Page<Employee> fetchOnlyFirstAndLastNamesOfEmployees(int pageNum, int pageSize, String sortingOrder) {
 		PageRequest pageRequest = generatePageRequest(pageNum, pageSize, sortingOrder, EMPLOYEE_ID);
 		return empDAOHelper.getEmployeesFirstAndLastNameObjects(pageRequest);
 	}
 
 	@Override
-	public Page<Employee> fecthOnlyFirstAndLastNamesOfEmployees(String firstName, String lastName, int pageNum,
+	public Page<Employee> fetchOnlyFirstAndLastNamesOfEmployees(String firstName, String lastName, int pageNum,
 			int pageSize, String sortingOrder) {
 		PageRequest pageRequest = generatePageRequest(pageNum, pageSize, sortingOrder, EMPLOYEE_ID);
 		return empDAOHelper.getEmployeesFirstAndLastNameObjects(firstName, lastName, pageRequest);
