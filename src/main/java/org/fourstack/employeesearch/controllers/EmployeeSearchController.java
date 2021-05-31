@@ -39,9 +39,10 @@ public class EmployeeSearchController {
 			@ApiResponse(responseCode = "500", description = "Internal Server Error - Some issue occurred"),
 			@ApiResponse(responseCode = "504", description = "Gateway Timeout - Timeout occurred")})	
 	@GetMapping(path = "/v1/employees", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Page<?>> getEmployeesDetails(@RequestParam(name = "pageNum", defaultValue = "0") int pageNum,
-			@RequestParam(name = "pageSize", defaultValue = "5") int pageSize,
-			@RequestParam(name = "sortOrder", defaultValue = "ASC") String sortingOrder) {
+	public ResponseEntity<Page<?>> getEmployeesDetails(
+			@ApiParam(value = "page Number", name = "pageNum", type = "Integer") @RequestParam(name = "pageNum", defaultValue = "0") int pageNum,
+			@ApiParam(value = "page Size", name = "pageSize", type = "Integer") @RequestParam(name = "pageSize", defaultValue = "5") int pageSize,
+			@ApiParam(value = "Sorting order", name = "sortOrder", allowableValues = "ASC, DESC") @RequestParam(name = "sortOrder", defaultValue = "ASC") String sortingOrder) {
 		return new ResponseEntity<Page<?>>(empService.fetchEmployees(pageNum, pageSize, sortingOrder), HttpStatus.OK);
 	}
 
@@ -55,11 +56,11 @@ public class EmployeeSearchController {
 			@ApiResponse(responseCode = "504", description = "Gateway Timeout - Timeout occurred") })
 	@GetMapping(path = "/v1/employees-first-last-names", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Page<?>> getOnlyEmployeeFirstAndLastNames(
-			@RequestParam(name = "pageNum", defaultValue = "0") int pageNum,
-			@RequestParam(name = "pageSize", defaultValue = "5") int pageSize,
-			@RequestParam(name = "sortOrder", defaultValue = "ASC") String sortingOrder,
-			@RequestParam(name = "firstname", required = false) String firstName,
-			@RequestParam(name = "lastname", required = false) String lastName) {
+			@ApiParam(value = "page Number", name = "pageNum", type = "Integer") @RequestParam(name = "pageNum", defaultValue = "0") int pageNum,
+			@ApiParam(value = "page Size", name = "pageSize", type = "Integer")  @RequestParam(name = "pageSize", defaultValue = "5") int pageSize,
+			@ApiParam(value = "Sorting order", name = "sortOrder", allowableValues = "ASC, DESC") @RequestParam(name = "sortOrder", defaultValue = "ASC") String sortingOrder,
+			@ApiParam(value = "First Name", name = "firstname", example="Vinay") @RequestParam(name = "firstname", required = false) String firstName,
+			@ApiParam(value = "Last Name", name = "lastname", example = "Kumar") @RequestParam(name = "lastname", required = false) String lastName) {
 
 		if ((firstName != null && !firstName.isEmpty()) && (lastName != null && !lastName.isEmpty())) {
 			return new ResponseEntity<Page<?>>(empService.fetchOnlyFirstAndLastNamesOfEmployees(firstName, lastName,
