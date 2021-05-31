@@ -72,6 +72,11 @@ public class EmployeeSearchServiceImpl implements EmployeeSearchService {
 		PageRequest pageRequest = generatePageRequest(pageNum, pageSize, sortingOrder, EMPLOYEE_ID);
 		return empDAOHelper.getEmployeesFirstAndLastNameObjects(firstName, lastName, pageRequest);
 	}
+	
+	@Override
+	public Employee fetchEmployeeById(String empId) {
+		return empDAOHelper.getEmployeeById(empId);
+	}
 
 	private PageRequest generatePageRequest(int pageNum, int pageSize, String sortingOrder, String... properties) {
 		Sort sort = null;
@@ -81,6 +86,7 @@ public class EmployeeSearchServiceImpl implements EmployeeSearchService {
 			break;
 		case DESCENDING_ORDER:
 			sort = Sort.by(Direction.DESC, properties);
+			break;
 		default:
 			sort = Sort.by(Direction.ASC, properties);
 			break;
@@ -88,4 +94,6 @@ public class EmployeeSearchServiceImpl implements EmployeeSearchService {
 
 		return PageRequest.of(pageNum, pageSize, sort);
 	}
+
+	
 }
