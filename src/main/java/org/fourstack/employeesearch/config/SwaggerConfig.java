@@ -1,10 +1,9 @@
 package org.fourstack.employeesearch.config;
 
-import java.util.Collections;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -17,7 +16,8 @@ public class SwaggerConfig {
 
 	@Bean
 	public Docket docket() {
-		return new Docket(DocumentationType.SWAGGER_2).select()
+		return new Docket(DocumentationType.SWAGGER_2)
+				.select()
 				.apis(RequestHandlerSelectors.basePackage("org.fourstack.employeesearch.controllers"))
 				.paths(PathSelectors.regex("/.*"))
 				.build()
@@ -25,10 +25,13 @@ public class SwaggerConfig {
 	}
 
 	private ApiInfo metaData() {
-		ApiInfo apiInfo = new ApiInfo("Employee Search Service", "Spring Boot REST API for Employee Search Service",
-				"1.0", "Terms of Service",
-				new Contact("Manjunath", "http://dummy.com/about", "fourstackdevelopers@gmail.com"),
-				"Apache License Version 2.0", "https://www.apache.org/licenses/LICENSE-2.0", Collections.emptyList());
-		return apiInfo;
+		return new ApiInfoBuilder()
+				.title("Employee Search Service")
+				.description("Spring Boot REST API for Employee Search Service")
+				.version("1.0.0")
+				.contact(new Contact("FourStackDev", "http://fourstackdev.com/about", "fourstackdevelopers@gmail.com"))
+				.license("Apache License Version 2.0")
+				.licenseUrl("https://www.apache.org/licenses/LICENSE-2.0")
+				.build();
 	}
 }

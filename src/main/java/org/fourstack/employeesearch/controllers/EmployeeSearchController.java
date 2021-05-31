@@ -11,8 +11,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
 @RestController
 @RequestMapping("/api")
+@Api(tags = {
+		"Employee Search Controller" }, value = "Enables api's to do search operation on Employees based on different Criteria.")
 public class EmployeeSearchController {
 
 	@Autowired
@@ -23,14 +31,29 @@ public class EmployeeSearchController {
 		return "Hello";
 	}
 
-	@GetMapping(path = "/employees", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ApiOperation(value = "API to get Page of Employees", produces = "application/json", 
+			httpMethod = "GET", notes = "API end point to fetch Page of Employees")
+	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Successful retrival of Page"), 
+			@ApiResponse(responseCode = "401", description = "UnAuthorized Access - You are not authorized"),
+			@ApiResponse(responseCode = "403", description = "Forbidden - Insufficient previlage to access the resource"),
+			@ApiResponse(responseCode = "500", description = "Internal Server Error - Some issue occurred"),
+			@ApiResponse(responseCode = "504", description = "Gateway Timeout - Timeout occurred")})	
+	@GetMapping(path = "/v1/employees", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Page<?>> getEmployeesDetails(@RequestParam(name = "pageNum", defaultValue = "0") int pageNum,
 			@RequestParam(name = "pageSize", defaultValue = "5") int pageSize,
 			@RequestParam(name = "sortOrder", defaultValue = "ASC") String sortingOrder) {
 		return new ResponseEntity<Page<?>>(empService.fetchEmployees(pageNum, pageSize, sortingOrder), HttpStatus.OK);
 	}
 
-	@GetMapping(path = "/employees-first-last-names", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ApiOperation(value = "API to get Page of Employees - Reurns only First and Last names", produces = "application/json", 
+			httpMethod = "GET", 
+			notes = "API end point to fetch Page of Employees (Filtered by Firstname or Lastname) - Reurns Objects with only First and Last names")
+	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Successful retrival of Page"),
+			@ApiResponse(responseCode = "401", description = "UnAuthorized Access - You are not authorized"),
+			@ApiResponse(responseCode = "403", description = "Forbidden - Insufficient previlage to access the resource"),
+			@ApiResponse(responseCode = "500", description = "Internal Server Error - Some issue occurred"),
+			@ApiResponse(responseCode = "504", description = "Gateway Timeout - Timeout occurred") })
+	@GetMapping(path = "/v1/employees-first-last-names", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Page<?>> getOnlyEmployeeFirstAndLastNames(
 			@RequestParam(name = "pageNum", defaultValue = "0") int pageNum,
 			@RequestParam(name = "pageSize", defaultValue = "5") int pageSize,
