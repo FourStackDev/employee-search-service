@@ -180,5 +180,106 @@
       "project":{
          "projectName":"BOTI"
       }
+   },
+   {
+      "empId":"FS00010",
+      "firstName":"Rajshekar",
+      "lastName":"Ganachari",
+	  "middleName":"B",
+      "location":"Malingapura",
+      "mail":"rajubg@gmail.com",
+      "mobileNum":"9824774212",
+      "department":{
+         "name":"Human Resource"
+      },
+      "account":{
+         "accountName":"IASIPS"
+      },
+      "role":{
+         "roleName":"Analyst Employee Experience"
+      },
+      "project":{
+         "projectName":"BOTI"
+      }
+   },
+   {
+      "empId":"FS00011",
+      "firstName":"Manoj",
+      "lastName":"HM",
+      "location":"Mandya",
+      "mail":"manoj@gmail.com",
+      "mobileNum":"3424774212",
+      "department":{
+         "name":"Quality Assurance"
+      },
+      "account":{
+         "accountName":"KMF"
+      },
+      "role":{
+         "roleName":"Quality Assurance Officer"
+      },
+      "project":{
+         "projectName":"Mandya KMF"
+      }
+   },
+   {
+      "empId":"FS00012",
+      "firstName":"Kushal",
+      "lastName":"Gowda",
+      "location":"Hireballa",
+      "mail":"kushal@gmail.com",
+      "mobileNum":"5624774212",
+      "department":{
+         "name":"Cycling"
+      },
+      "account":{
+         "accountName":"Home"
+      },
+      "role":{
+         "roleName":"Cycling Officer"
+      },
+      "project":{
+         "projectName":"Home Dept"
+      }
+   },
+   {
+      "empId":"FS00013",
+      "firstName":"Kishan",
+      "lastName":"Gowda",
+      "location":"Hireballa",
+      "mail":"kishan@gmail.com",
+      "mobileNum":"3224774212",
+      "department":{
+         "name":"Farming"
+      },
+      "account":{
+         "accountName":"Farms"
+      },
+      "role":{
+         "roleName":"Water lookup Officer"
+      },
+      "project":{
+         "projectName":"Farming Dept"
+      }
+   },
+   {
+      "empId":"FS00014",
+      "firstName":"Keertan",
+      "lastName":"Gowda",
+      "location":"Hireballa",
+      "mail":"keertan@gmail.com",
+      "mobileNum":"9724774212",
+      "department":{
+         "name":"Byaa"
+      },
+      "account":{
+         "accountName":"Byaa"
+      },
+      "role":{
+         "roleName":"Byaa Officer"
+      },
+      "project":{
+         "projectName":"Byaa Dept"
+      }
    }
 ]
