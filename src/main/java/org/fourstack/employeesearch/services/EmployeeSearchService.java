@@ -7,6 +7,8 @@ import org.springframework.data.domain.Page;
 public interface EmployeeSearchService {
 
 	Page<Employee> fetchEmployees(int pageNum, int pageSize, String sortingOrder);
+	
+	Page<Employee> fetchEmployees(int pageNum, int pageSize, String sortingOrder, String orderBy);
 
 	Page<Employee> fetchEmployeesByCriteria(EmpSearchData data, int pageNum, int pageSize, String sortingOrder);
 

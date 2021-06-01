@@ -3,10 +3,16 @@ package org.fourstack.employeesearch.services;
 import static org.fourstack.employeesearch.constants.EmployeeSearchConstants.ASCENDING_ORDER;
 import static org.fourstack.employeesearch.constants.EmployeeSearchConstants.DESCENDING_ORDER;
 import static org.fourstack.employeesearch.constants.EmployeeSearchConstants.EMPLOYEE_ID;
+import static org.fourstack.employeesearch.constants.EmployeeSearchConstants.FIRST_NAME;
+import static org.fourstack.employeesearch.constants.EmployeeSearchConstants.LAST_NAME;
+import static org.fourstack.employeesearch.constants.EmployeeSearchConstants.ORDERBY_EMPLOYEEID;
+import static org.fourstack.employeesearch.constants.EmployeeSearchConstants.ORDERBY_FIRSTNAME;
+import static org.fourstack.employeesearch.constants.EmployeeSearchConstants.ORDERBY_LASTNAME;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.fourstack.employeesearch.constants.EmployeeSearchConstants;
 import org.fourstack.employeesearch.helper.EmployeeSearchDAOHelper;
 import org.fourstack.employeesearch.models.EmpSearchData;
 import org.fourstack.employeesearch.models.Employee;
@@ -77,6 +83,40 @@ public class EmployeeSearchServiceImpl implements EmployeeSearchService {
 	public Employee fetchEmployeeById(String empId) {
 		return empDAOHelper.getEmployeeById(empId);
 	}
+	
+	@Override
+	public Page<Employee> fetchEmployees(int pageNum, int pageSize, String sortingOrder, String orderByKey) {
+		String orderByValue = getOrderByValue(orderByKey);
+		PageRequest pageRequest = generatePageRequest(pageNum, pageSize, sortingOrder, orderByValue);
+
+		return empDAOHelper.getEmployeePage(pageRequest);
+	}
+
+	/**
+	 * Used to generate the orderBy query parameter using the orderByKey. Matching
+	 * Values are defined in {@link EmployeeSearchConstants} class.
+	 * 
+	 * @param orderByKey User populated key, to which we need to find Order By
+	 *                   value.
+	 * @return Order By Query parameter value.
+	 */
+	private String getOrderByValue(String orderByKey) {
+		String orderByValue = null;
+		switch (orderByKey) {
+		case ORDERBY_EMPLOYEEID:
+			orderByValue = EMPLOYEE_ID;
+			break;
+		case ORDERBY_FIRSTNAME:
+			orderByValue = FIRST_NAME;
+			break;
+		case ORDERBY_LASTNAME:
+			orderByValue = LAST_NAME;
+			break;
+		default:
+			orderByValue = EMPLOYEE_ID;
+		}
+		return orderByValue;
+	}
 
 	private PageRequest generatePageRequest(int pageNum, int pageSize, String sortingOrder, String... properties) {
 		Sort sort = null;
@@ -93,7 +133,5 @@ public class EmployeeSearchServiceImpl implements EmployeeSearchService {
 		}
 
 		return PageRequest.of(pageNum, pageSize, sort);
-	}
-
-	
+	}	
 }

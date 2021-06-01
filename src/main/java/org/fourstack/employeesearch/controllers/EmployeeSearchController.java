@@ -1,5 +1,7 @@
 package org.fourstack.employeesearch.controllers;
 
+import static org.fourstack.employeesearch.constants.EmployeeSearchConstants.EMPLOYEE_ID;
+
 import org.fourstack.employeesearch.models.Employee;
 import org.fourstack.employeesearch.services.EmployeeSearchService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping("/api")
@@ -33,6 +36,7 @@ public class EmployeeSearchController {
 		return "Hello";
 	}
 
+	@Tag(name = "V1 - API's")
 	@ApiOperation(value = "API to get Page of Employees", produces = "application/json", 
 			httpMethod = "GET", notes = "API end point to fetch Page of Employees")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Successful retrival of Page"), 
@@ -48,6 +52,7 @@ public class EmployeeSearchController {
 		return new ResponseEntity<Page<?>>(empService.fetchEmployees(pageNum, pageSize, sortingOrder), HttpStatus.OK);
 	}
 
+	@Tag(name = "V1 - API's")
 	@ApiOperation(value = "API to get Page of Employees - Reurns only First and Last names", produces = "application/json", 
 			httpMethod = "GET", 
 			notes = "API end point to fetch Page of Employees (Filtered by Firstname or Lastname) - Reurns Objects with only First and Last names")
@@ -74,6 +79,7 @@ public class EmployeeSearchController {
 
 	}
 	
+	@Tag(name = "V1 - API's")
 	@ApiOperation(value = "API to get Employees by Id", produces = "application/json", 
 			httpMethod = "GET", notes = "API end point to get Employee by Id")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Successful retrival of Employee Object"),
@@ -82,10 +88,29 @@ public class EmployeeSearchController {
 			@ApiResponse(responseCode = "500", description = "Internal Server Error - Some issue occurred"),
 			@ApiResponse(responseCode = "504", description = "Gateway Timeout - Timeout occurred") })
 	
+	@Tag(name = "V1 - API's")
 	@GetMapping(path = "/v1/employees/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Employee> getEmployeeById(
 			@ApiParam(value = "Employee Id", name = "id", required = true) @PathVariable(name = "id", value = "id") String id) {
 		return new ResponseEntity<Employee>(empService.fetchEmployeeById(id), HttpStatus.OK);
+	}
+	
+	
+	@Tag(name = "V2 - API's")
+	@ApiOperation(value = "API to get Page of Employees - Enhanced to get OrderBy value from User", produces = "application/json", 
+			httpMethod = "GET", notes = "API end point to fetch Page of Employees")
+	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Successful retrival of Page"), 
+			@ApiResponse(responseCode = "401", description = "UnAuthorized Access - You are not authorized"),
+			@ApiResponse(responseCode = "403", description = "Forbidden - Insufficient previlage to access the resource"),
+			@ApiResponse(responseCode = "500", description = "Internal Server Error - Some issue occurred"),
+			@ApiResponse(responseCode = "504", description = "Gateway Timeout - Timeout occurred")})	
+	@GetMapping(path = "/v2/employees", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Page<?>> getEmployeesDetailsV2(
+			@ApiParam(value = "page Number", name = "pageNum", type = "Integer") @RequestParam(name = "pageNum", defaultValue = "0") int pageNum,
+			@ApiParam(value = "page Size", name = "pageSize", type = "Integer") @RequestParam(name = "pageSize", defaultValue = "5") int pageSize,
+			@ApiParam(value = "Sorting order", name = "sortOrder", allowableValues = "ASC, DESC") @RequestParam(name = "sortOrder", defaultValue = "ASC") String sortingOrder,
+			@ApiParam(value = "Order By", name= "orderBy", allowableValues = "EMPLOYEE ID, FIRST NAME, LAST NAME") @RequestParam(name = "orderBy", defaultValue = EMPLOYEE_ID) String orderBy) {
+		return new ResponseEntity<Page<?>>(empService.fetchEmployees(pageNum, pageSize, sortingOrder, orderBy), HttpStatus.OK);
 	}
 
 }
