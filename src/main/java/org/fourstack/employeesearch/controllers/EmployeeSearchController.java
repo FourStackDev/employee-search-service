@@ -1,6 +1,8 @@
 package org.fourstack.employeesearch.controllers;
 
 import static org.fourstack.employeesearch.constants.EmployeeSearchConstants.EMPLOYEE_ID;
+import static org.fourstack.employeesearch.constants.SwaggerConstants.APPLICATION_JSON;
+import static org.fourstack.employeesearch.constants.SwaggerConstants.HTTP_METHOD_GET;
 
 import org.fourstack.employeesearch.models.Employee;
 import org.fourstack.employeesearch.services.EmployeeSearchService;
@@ -37,8 +39,8 @@ public class EmployeeSearchController {
 	}
 
 	@Tag(name = "Employee Search Controller :: V1 - API's")
-	@ApiOperation(value = "API to get Page of Employees", produces = "application/json", 
-			httpMethod = "GET", notes = "API end point to fetch Page of Employees")
+	@ApiOperation(value = "API to get Page of Employees", produces = APPLICATION_JSON, 
+			httpMethod = HTTP_METHOD_GET, notes = "API end point to fetch Page of Employees")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Successful retrival of Page"), 
 			@ApiResponse(responseCode = "401", description = "UnAuthorized Access - You are not authorized"),
 			@ApiResponse(responseCode = "403", description = "Forbidden - Insufficient previlage to access the resource"),
@@ -53,8 +55,8 @@ public class EmployeeSearchController {
 	}
 
 	@Tag(name = "Employee Search Controller :: V1 - API's")
-	@ApiOperation(value = "API to get Page of Employees - Reurns only First and Last names", produces = "application/json", 
-			httpMethod = "GET", 
+	@ApiOperation(value = "API to get Page of Employees - Reurns only First and Last names", produces = APPLICATION_JSON, 
+			httpMethod = HTTP_METHOD_GET, 
 			notes = "API end point to fetch Page of Employees (Filtered by Firstname or Lastname) - Reurns Objects with only First and Last names")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Successful retrival of Page"),
 			@ApiResponse(responseCode = "401", description = "UnAuthorized Access - You are not authorized"),
@@ -80,8 +82,8 @@ public class EmployeeSearchController {
 	}
 	
 	@Tag(name = "Employee Search Controller :: V1 - API's")
-	@ApiOperation(value = "API to get Employee by Id", produces = "application/json", 
-			httpMethod = "GET", notes = "API end point to get Employee by Id")
+	@ApiOperation(value = "API to get Employee by Id", produces = APPLICATION_JSON, 
+			httpMethod = HTTP_METHOD_GET, notes = "API end point to get Employee by Id")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Successful retrival of Employee Object"),
 			@ApiResponse(responseCode = "401", description = "UnAuthorized Access - You are not authorized"),
 			@ApiResponse(responseCode = "403", description = "Forbidden - Insufficient previlage to access the resource"),
@@ -95,8 +97,8 @@ public class EmployeeSearchController {
 	}
 	
 	@Tag(name = "Employee Search Controller :: V1 - API's")
-	@ApiOperation(value = "API to get Employee by Mobile Number", produces = "application/json", 
-			httpMethod = "GET", notes = "API end point to get Employee by Mobile Number")
+	@ApiOperation(value = "API to get Employee by Mobile Number", produces = APPLICATION_JSON, 
+			httpMethod = HTTP_METHOD_GET, notes = "API end point to get Employee by Mobile Number")
 			@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Successful retrival of Employee Object"),
 			@ApiResponse(responseCode = "401", description = "UnAuthorized Access - You are not authorized"),
 			@ApiResponse(responseCode = "403", description = "Forbidden - Insufficient previlage to access the resource"),
@@ -110,8 +112,8 @@ public class EmployeeSearchController {
 	}
 	
 	@Tag(name = "Employee Search Controller :: V1 - API's")
-	@ApiOperation(value = "API to get Employee by Mail Id", produces = "application/json", 
-			httpMethod = "GET", notes = "API end point to get Employee by Mail Id")
+	@ApiOperation(value = "API to get Employee by Mail Id", produces = APPLICATION_JSON, 
+			httpMethod = HTTP_METHOD_GET, notes = "API end point to get Employee by Mail Id")
 			@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Successful retrival of Employee Object"),
 			@ApiResponse(responseCode = "401", description = "UnAuthorized Access - You are not authorized"),
 			@ApiResponse(responseCode = "403", description = "Forbidden - Insufficient previlage to access the resource"),
@@ -126,8 +128,8 @@ public class EmployeeSearchController {
 	
 	
 	@Tag(name = "Employee Search Controller :: V2 - API's")
-	@ApiOperation(value = "API to get Page of Employees - Enhanced to get OrderBy value from User", produces = "application/json", 
-			httpMethod = "GET", notes = "API end point to fetch Page of Employees")
+	@ApiOperation(value = "API to get Page of Employees - Enhanced to get OrderBy value from User", produces = APPLICATION_JSON, 
+			httpMethod = HTTP_METHOD_GET, notes = "API end point to fetch Page of Employees")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Successful retrival of Page"), 
 			@ApiResponse(responseCode = "401", description = "UnAuthorized Access - You are not authorized"),
 			@ApiResponse(responseCode = "403", description = "Forbidden - Insufficient previlage to access the resource"),
