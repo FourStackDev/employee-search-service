@@ -18,4 +18,8 @@ public interface EmployeeSearchService {
 			String sortingOrder);
 	
 	Employee fetchEmployeeById(String empId);
+
+	Employee fetchEmployeeByMobileNumber(String mobileNum);
+
+	Employee fetchEmployeeByMailId(String mailId);
 }

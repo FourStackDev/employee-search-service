@@ -91,6 +91,16 @@ public class EmployeeSearchServiceImpl implements EmployeeSearchService {
 
 		return empDAOHelper.getEmployeePage(pageRequest);
 	}
+	
+	@Override
+	public Employee fetchEmployeeByMobileNumber(String mobileNum) {
+		return empDAOHelper.getEmployeeByMobileNumber(mobileNum);
+	}
+
+	@Override
+	public Employee fetchEmployeeByMailId(String mailId) {
+		return empDAOHelper.getEmployeeByEmail(mailId);
+	}
 
 	/**
 	 * Used to generate the orderBy query parameter using the orderByKey. Matching
