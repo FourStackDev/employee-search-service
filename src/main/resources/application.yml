@@ -1,3 +1,9 @@
+#define application name
+spring:
+   application:
+       name: employee-search-service
+
+#define server port and contextPath
 server:
    port: 8080
    servlet:
