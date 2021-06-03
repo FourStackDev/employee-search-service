@@ -2,8 +2,9 @@ package org.fourstack.employeesearch.controllers;
 
 import static org.fourstack.employeesearch.constants.EmployeeSearchConstants.EMPLOYEE_ID;
 import static org.fourstack.employeesearch.constants.SwaggerConstants.APPLICATION_JSON;
-import static org.fourstack.employeesearch.constants.SwaggerConstants.HTTP_METHOD_GET;
+import static org.fourstack.employeesearch.constants.SwaggerConstants.*;
 
+import org.fourstack.employeesearch.models.EmpSearchData;
 import org.fourstack.employeesearch.models.Employee;
 import org.fourstack.employeesearch.services.EmployeeSearchService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -124,6 +127,26 @@ public class EmployeeSearchController {
 	public ResponseEntity<Employee> getEmployeeByMailId(
 			@ApiParam(value = "Mail Id", name = "mailId", required = true) @PathVariable(name = "mailId", value = "mailId") String mailId) {
 		return new ResponseEntity<Employee>(empService.fetchEmployeeByMailId(mailId), HttpStatus.OK);
+	}
+	
+	@Tag(name = "Employee Search Controller :: V1 - API's")
+	@ApiOperation(value = "API to get Page of Employees by Criteria", produces = APPLICATION_JSON, consumes = APPLICATION_JSON,
+			httpMethod = HTTP_METHOD_POST, notes = "API end point to get Page of Employees by Criteria")
+			@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Successful retrival of Page of Employee Objects"),
+			@ApiResponse(responseCode = "401", description = "UnAuthorized Access - You are not authorized"),
+			@ApiResponse(responseCode = "403", description = "Forbidden - Insufficient previlage to access the resource"),
+			@ApiResponse(responseCode = "404", description = "Not Found - Requested Resource not Found"),
+			@ApiResponse(responseCode = "500", description = "Internal Server Error - Some issue occurred"),
+			@ApiResponse(responseCode = "504", description = "Gateway Timeout - Timeout occurred") })
+	@PostMapping(path = "/v1/employees/search-by-criteria", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Page<?>> getEmployeesByCriteria(
+			@ApiParam(value = "page Number", name = "pageNum", type = "Integer") @RequestParam(name = "pageNum", defaultValue = "0") int pageNum,
+			@ApiParam(value = "page Size", name = "pageSize", type = "Integer") @RequestParam(name = "pageSize", defaultValue = "10") int pageSize,
+			@ApiParam(value = "Sorting order", name = "sortOrder", allowableValues = "ASC, DESC") @RequestParam(name = "sortOrder", defaultValue = "ASC") String sortingOrder,
+			@RequestBody EmpSearchData data) {
+
+		return new ResponseEntity<Page<?>>(empService.fetchEmployeesByCriteria(data, pageNum, pageSize, sortingOrder),
+				HttpStatus.OK);
 	}
 	
 	
